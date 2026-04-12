@@ -44,6 +44,7 @@ public class MyLinkedList<T> implements MyList<T> {
     @Override public void sort() {}
     @Override public int indexOf(Object object) { return -1; }
     @Override public int lastIndexOf(Object object) { return -1; }
+    // final check.
     @Override public boolean exists(Object object) { return false; }
     @Override public Object[] toArray() { return new Object[0]; }
     @Override public void clear() {}
