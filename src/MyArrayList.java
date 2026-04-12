@@ -60,7 +60,16 @@ public class MyArrayList<T> implements MyList<T> {
     @Override public void addLast(T item) {}
     @Override public T getFirst() { return null; }
     @Override public T getLast() { return null; }
-    @Override public void remove(int index) {}
+    @Override public void remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+        for (int i = index; i < size - 1; i++) {
+            elements[i] = elements[i + 1];
+        }
+        elements[size - 1] = null;
+        size--;
+    }
     @Override public void removeFirst() {}
     @Override public void removeLast() {}
     @Override public void sort() {}
