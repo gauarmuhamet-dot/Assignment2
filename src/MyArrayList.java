@@ -73,7 +73,14 @@ public class MyArrayList<T> implements MyList<T> {
     @Override public void removeFirst() {}
     @Override public void removeLast() {}
     @Override public void sort() {}
-    @Override public int indexOf(Object object) { return -1; }
+    @Override public int indexOf(Object object) {
+        for (int i = 0; i < size; i++) {
+            if (elements[i].equals(object)) {
+                return i;
+            }
+        }
+        return -1;
+    }
     @Override public int lastIndexOf(Object object) { return -1; }
     @Override public boolean exists(Object object) { return false; }
     @Override public Iterator<T> iterator() { return null; }
