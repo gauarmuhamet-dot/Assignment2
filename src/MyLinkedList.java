@@ -20,7 +20,17 @@ public class MyLinkedList<T> implements MyList<T> {
         return size;
     }
 
-    @Override public void add(T item) {}
+    @Override public void add(T item) {
+        MyNode newNode = new MyNode(item);
+        if (head == null) {
+            head = tail = newNode;
+        } else {
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+        }
+        size++;
+    }
     @Override public void set(int index, T item) {}
     @Override public void add(int index, T item) {}
     @Override public void addFirst(T item) {}
