@@ -54,5 +54,17 @@ public class Main {
             System.out.print(x + " ");
         }
         System.out.println();
+        System.out.println("\n=== MyStack ===");
+
+        MyStack<Integer> stack = new MyStack<>();
+
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+
+        System.out.println("Top: " + stack.peek());
+        System.out.println("Pop: " + stack.pop());
+        System.out.println("Pop: " + stack.pop());
+        System.out.println("Size: " + stack.size());
     }
 }
