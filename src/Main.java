@@ -66,5 +66,17 @@ public class Main {
         System.out.println("Pop: " + stack.pop());
         System.out.println("Pop: " + stack.pop());
         System.out.println("Size: " + stack.size());
+        System.out.println("\n=== MyQueue ===");
+
+        MyQueue<Integer> queue = new MyQueue<>();
+
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.enqueue(3);
+
+        System.out.println("Peek: " + queue.peek());
+        System.out.println("Dequeue: " + queue.dequeue());
+        System.out.println("Dequeue: " + queue.dequeue());
+        System.out.println("Size: " + queue.size());
     }
 }
