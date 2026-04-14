@@ -52,8 +52,7 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
 
     @Override
     public void set(int index, T item) {
-        MyNode node = getNode(index);
-        node.data = item;
+        getNode(index).data = item;
     }
 
     @Override
@@ -198,9 +197,7 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
 
     @Override
     public void sort() {
-        if (size < 2) {
-            return;
-        }
+        if (size < 2) return;
 
         for (MyNode i = head; i != null; i = i.next) {
             for (MyNode j = head; j.next != null; j = j.next) {
@@ -219,19 +216,12 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
         int index = 0;
 
         while (current != null) {
-            if (object == null) {
-                if (current.data == null) {
-                    return index;
-                }
-            } else {
-                if (object.equals(current.data)) {
-                    return index;
-                }
+            if (object == null ? current.data == null : object.equals(current.data)) {
+                return index;
             }
             current = current.next;
             index++;
         }
-
         return -1;
     }
 
@@ -241,19 +231,12 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
         int index = size - 1;
 
         while (current != null) {
-            if (object == null) {
-                if (current.data == null) {
-                    return index;
-                }
-            } else {
-                if (object.equals(current.data)) {
-                    return index;
-                }
+            if (object == null ? current.data == null : object.equals(current.data)) {
+                return index;
             }
             current = current.prev;
             index--;
         }
-
         return -1;
     }
 
@@ -266,10 +249,10 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
     public Object[] toArray() {
         Object[] array = new Object[size];
         MyNode current = head;
-        int index = 0;
+        int i = 0;
 
         while (current != null) {
-            array[index++] = current.data;
+            array[i++] = current.data;
             current = current.next;
         }
 
@@ -278,16 +261,8 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
 
     @Override
     public void clear() {
-        MyNode current = head;
-
-        while (current != null) {
-            MyNode next = current.next;
-            current.prev = null;
-            current.next = null;
-            current = next;
-        }
-
-        head = tail = null;
+        head = null;
+        tail = null;
         size = 0;
     }
 
